@@ -1,0 +1,26 @@
+{
+  "name": "curso-profesional-js",
+  "version": "1.0.0",
+  "description": "Curso profesional de JavaScript",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxxzLR/Curso-Profesional-JS.git"
+  },
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "Axel Alexis López Reséndiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AxxzLR/Curso-Profesional-JS/issues"
+  },
+  "homepage": "https://github.com/AxxzLR/Curso-Profesional-JS#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
