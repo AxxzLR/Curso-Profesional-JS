@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>Closures</title>
+</head>
+
+<body>
+  <a href="/ejercicios/">Go back</a>
+  <p><em>Abre la consola</em></p>
+  <script>
+    //#region Closures
+    //let color ='green' //de esta forma esta global
+
+    /*
+    IIFE (inmediatly invoked function expresion)
+    (function () {
+    statements
+    })();
+    */
+    // (function () {
+    //   let color = 'green'
+
+    //   function printColor() {
+    //     console.log(color)
+    //   }
+
+    //   printColor()
+    // })()
+
+
+    //Funciones que regresan funciones
+    // function makeColorPrinter(color){
+    //   let colorMessage=`The color is ${color}`
+
+    //   return function(){
+    //     console.log(colorMessage)
+    //   }
+    // }
+
+    // let greenColorPrinter = makeColorPrinter('green')
+
+    // console.log(greenColorPrinter)
+
+    // greenColorPrinter()
+
+    //variables privadas
+    //esto es una variable global y publica
+    // const counter = {
+    //   count: 3,
+    // }
+
+    function makeCounter(n) {
+      let count = n
+
+      return {
+        increase : function name() { count ++},
+        decrease : function name() { count --},
+        getCount : function name() { return count},
+      }
+    }
+
+    let counter = makeCounter(8)
+
+    console.log(`The counter is ${counter.getCount()}`)
+    counter.increase()
+    console.log(`The counter is ${counter.getCount()}`)
+    counter.decrease()
+    counter.decrease()
+    counter.decrease()
+    counter.decrease()
+    console.log(`The counter is ${counter.getCount()}`)
+    //#endregion
+  </script>
+</body>
+
+</html>
