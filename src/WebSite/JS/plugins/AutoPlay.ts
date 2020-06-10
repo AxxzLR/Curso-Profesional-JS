@@ -1,3 +1,5 @@
+import MediaPlayer from "../MediaPlayer"
+
 //#region Declaracion por prototipo
 function Auto_Play() {
     Auto_Play.prototype.run = function (player) {
@@ -12,11 +14,16 @@ class AutoPlay {
 
     }
 
-    run(player) {
-        if (!player.muted) {
+    run(player: MediaPlayer) {
+        // if (!player.muted) {
+        //     player.muted=true
+        // }
+
+        if (!player.media.muted) {
             player.mute()
         }
-        player.play()
+        //player.play()
+        player.togglePlay()
     }
 }
 //#endregion

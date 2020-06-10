@@ -31,14 +31,24 @@ Media_Player.prototype._initPlugins = function () {
 
 //#region Declaracion por clase
 class MediaPlayer {
-    constructor(config) {
+    media: HTMLMediaElement
+    plugins: Array<any>
+    setPlaying: boolean
+    container: HTMLElement
+    constructor(config: any) {
         this.media = config.media
         this.plugins = config.plugins || [] //Valor inicial
-
-        this._initPlugins()
+        this.initPlayer()
+        this.initPlugins()
     }
 
-    //Metodos
+    //#region Metodos
+    initPlayer() {
+        this.container = document.createElement('div')
+        this.container.style.position = 'relative'
+        this.media.parentNode.insertBefore(this.container, this.media)
+        this.container.appendChild(this.media)
+    }
     play() {
         this.media.play()
     }
@@ -50,7 +60,8 @@ class MediaPlayer {
     togglePlay() {
         (this.media.paused)
             ? this.play()
-            : this.pause()
+            : this.pause();
+        this.setPlaying = !this.media.paused
     }
 
     mute() {
@@ -68,21 +79,33 @@ class MediaPlayer {
             : this.mute()
     }
 
-    _initPlugins() {
+    //#endregion
+
+    //Inicializar
+    private initPlugins() {
         const player = {
-            play: () => this.play(),
-            pause: () => this.pause(),
+            // play: () => this.play(),
+            // pause: () => this.pause(),
             media: this.media,
-            get muted() {
-                return media.muted
+            get played() {
+                return !this.media.paused
             },
-            set muted(value){
-                media.muted = value
+            set played(value) {
+                (value)
+                    ? this.play()
+                    : this.pause()
+            },
+            get muted() {
+                return this.media.muted
+            },
+            set muted(value) {
+                this.media.muted = value
             }
         }
         this.plugins.forEach(plugin => {
             //this es MediaPlayer
             plugin.run(this)
+            // plugin.run(player)
         })
     }
 }
