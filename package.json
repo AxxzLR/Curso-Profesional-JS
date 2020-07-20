@@ -9,7 +9,7 @@
     "start-platzi": "parcel src/WebSite/MediaPlayer.html src/Ejercicios/index.html src/Ejercicios/**/*.html",
     "start": "parcel src/**/*.html",
     "start-ts": "parcel src/Ejercicios/Decorator/index.html",
-    "start-proyect":"parcel src/WebSite/MediaPlayer.html"
+    "start-proyect": "parcel src/WebSite/MediaPlayer.html"
   },
   "repository": {
     "type": "git",

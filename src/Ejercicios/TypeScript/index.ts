@@ -65,7 +65,7 @@ const richard = fullName('Agente');
 console.log(richard);
 //#endregion
 
-//#region 
+//#region interfacess
 /* Duplicado
 enum Color {
   Rojo = 'Rojo',
